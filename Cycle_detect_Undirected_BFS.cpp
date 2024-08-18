@@ -40,7 +40,7 @@ class Graph{
                    q.push(nbrData);
                    parent[nbrData] = frontNode;
                }
-               if(vis[nbrData] == true && frontNode  != parent[nbrData]){
+               if(vis[nbrData] == true && nbrData  != parent[frontNode]){
                    return true;
                }
            }
