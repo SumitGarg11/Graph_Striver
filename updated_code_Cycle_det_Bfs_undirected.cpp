@@ -23,9 +23,9 @@ class Graph{
            cout<<"  } "<< endl;
        }
    }
-   bool isCycleUndirected(int root){
+   bool isCycleUndirected(int root, unordered_map<int,bool> &vis){
        queue<int> q;
-       unordered_map<int, bool> vis;
+      
        unordered_map<int,int> parent;
        q.push(root);
        vis[root] = true;
@@ -60,11 +60,21 @@ int main(){
     
     g.print();
     cout<<endl;
-    bool IsCycle = g.isCycleUndirected(1);
-    if(IsCycle){
-        cout<<"Yes Cycle Present";
-    }
-    else cout<<"Not present";
+    // bool IsCycle = g.isCycleUndirected(1);
+    // if(IsCycle){
+    //     cout<<"Yes Cycle Present";
+    // }
+    // else cout<<"Not present";
+     unordered_map<int, bool> vis;
+     for(int i = 0; i<= 5; i++){
+         if(!vis[i]){
+             bool ans = g.isCycleUndirected(i,vis);
+             if(ans == true){
+                 cout<<"Cycle";
+             }
+             else cout<<"Not Cycle";
+         }
+     }
     
     
 }
